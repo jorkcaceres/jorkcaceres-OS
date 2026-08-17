@@ -21,7 +21,7 @@ La conversación busca comprender el problema antes de definir una tecnología, 
 
 Convertimos la conversación en un Diagnóstico Estratégico.
 
-No partimos de una herramienta ni de un servicio predeterminado.
+No partimos de una tecnología, capacidad o modalidad predeterminada.
 
 Definimos con claridad el problema, su contexto, las alternativas disponibles y el resultado que se busca alcanzar. Ese resultado orienta la solución.
 

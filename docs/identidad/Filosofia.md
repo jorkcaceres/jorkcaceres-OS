@@ -61,7 +61,7 @@ No buscamos empresas únicamente para ejecutar proyectos. Buscamos relaciones de
 
 Internamente usamos un lenguaje estructurado. Externamente usamos un lenguaje humano, cercano y adaptado al nivel de conocimiento de cada persona.
 
-Las capacidades son el lenguaje interno para organizar lo que sabemos hacer. Los servicios son el lenguaje comercial público. Las soluciones o modalidades son formas concretas de materializar una capacidad.
+Las capacidades son el lenguaje interno para organizar lo que sabemos hacer. Los servicios son el lenguaje comercial público. Las modalidades son formas concretas de materializar una capacidad.
 
 El contenido comercial debe ayudar a reducir incertidumbre y facilitar una decisión, no limitarse a describir características. Los llamados a la acción deben proponer un siguiente paso sencillo, concreto y coherente con el contexto.
 
