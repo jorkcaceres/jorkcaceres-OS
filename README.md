@@ -2,7 +2,7 @@
 
 Repositorio oficial de conocimiento de Jorkcáceres.
 
-Jorkcáceres OS documenta la filosofía, el modelo comercial, el método, el razonamiento, las capacidades, los estándares y los activos digitales que representan la forma oficial de pensar y trabajar de Jorkcáceres.
+Jorkcáceres OS documenta la filosofía, el modelo comercial, el método, el razonamiento, las capacidades, los estándares, los activos digitales y los aprendizajes que representan la forma oficial de pensar y trabajar de Jorkcáceres.
 
 ## Estructura
 
@@ -11,6 +11,8 @@ Jorkcáceres OS documenta la filosofía, el modelo comercial, el método, el raz
 - [Capacidades](docs/capacidades/)
 - [Estándares](docs/estandares/)
 - [Activos Digitales](docs/Activos_Digitales.md)
+- [Conocimiento](docs/conocimiento/)
+- [Log](docs/Log.md)
 
 ## Uso
 
@@ -18,4 +20,4 @@ Este repositorio funciona como fuente oficial de conocimiento para Jorkcáceres 
 
 ## Versión
 
-1.0.0
+1.1.0

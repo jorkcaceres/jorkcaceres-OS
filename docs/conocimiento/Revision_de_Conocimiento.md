@@ -1,4 +1,4 @@
-# Knowledge Review
+# Revisión de Conocimiento
 
 **Versión:** 1.0  
 **Estado:** Aprobado
