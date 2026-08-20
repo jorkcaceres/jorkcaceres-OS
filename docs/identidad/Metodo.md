@@ -1,6 +1,6 @@
 # Método
 
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Aprobado
 
 ## Propósito
@@ -47,6 +47,8 @@ Preferimos avanzar por fases antes que intentar abarcar todo al mismo tiempo.
 
 Cada fase debe mantener trazabilidad entre el problema identificado, la solución acordada y el resultado que se espera validar.
 
+Cuando la solución gestiona datos o accesos, la planificación también define usuarios, propiedad de la información, permisos, validaciones del servidor, protección contra abuso, operación y despliegue.
+
 ## 6. Implementar
 
 Ejecutamos la solución acordada y hacemos seguimiento.
@@ -58,6 +60,8 @@ Durante el proceso, comunicamos los avances, decisiones y ajustes necesarios de 
 Comprobamos que el resultado corresponde a lo solicitado y que genera valor.
 
 La validación contrasta el resultado obtenido con el problema y el resultado esperado definidos en el diagnóstico.
+
+También comprueba el flujo con permisos reales, datos vacíos, errores esperados, móvil, escritorio y entorno de producción. Un despliegue automático no sustituye esta comprobación.
 
 ## 8. Cerrar
 
@@ -75,3 +79,10 @@ Los aprendizajes que tengan valor permanente pueden convertirse en conocimiento 
 ## Regla
 
 El método no obliga a seguir una secuencia rígida cuando el contexto requiere otra. El criterio siempre está por encima del procedimiento.
+
+## Historial de cambios
+
+### 1.2
+
+- Inclusión de seguridad, operación y validación en producción como parte del método de implementación.
+

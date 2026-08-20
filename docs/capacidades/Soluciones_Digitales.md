@@ -1,6 +1,6 @@
 # Soluciones Digitales
 
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Estado:** Aprobado
 
 ## Propósito
@@ -55,3 +55,22 @@ Se trata de encontrar nuevas formas de resolver problemas reales mediante tecnol
 No todo problema necesita una solución tecnológica.
 
 Y una solución técnicamente posible puede no ser viable para el negocio.
+
+## Aprendizaje aplicado
+
+Una solución orientada a clientes debe separar con claridad:
+
+- la experiencia pública, cuando no requiere autenticación;
+- la consulta privada de información propia;
+- la administración de datos y decisiones operativas.
+
+La interfaz puede orientar al usuario, pero los permisos, las validaciones y las operaciones sensibles deben ejecutarse y verificarse en el servidor. La solución también debe diseñarse para operar: crecimiento de registros, estados de carga, errores, despliegue, caché y comprobación en producción forman parte del alcance.
+
+Este aprendizaje fue validado en el [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md).
+
+## Historial de cambios
+
+### 1.1
+
+- Incorporación de patrones validados para soluciones con experiencias públicas, privadas y administrativas.
+

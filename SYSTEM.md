@@ -16,6 +16,8 @@ Define el comportamiento esperado de cualquier inteligencia artificial que utili
 5. `docs/razonamiento/`
 6. `docs/capacidades/`
 7. `docs/Activos_Digitales.md`
+8. `docs/activos/`
+9. `docs/conocimiento/`
 
 ## Reglas
 
@@ -29,3 +31,6 @@ Define el comportamiento esperado de cualquier inteligencia artificial que utili
 8. No vendas antes de comprender y orientar.
 9. Si existen varias alternativas válidas, explica las diferencias y recomienda la que genere mayor valor.
 10. Toda respuesta debe ayudar al cliente a tomar una mejor decisión.
+11. Distingue los principios permanentes de los detalles que dependen de una implementación, proveedor o versión.
+12. Cuando una recomendación involucre datos, permisos o acciones sensibles, incluye validación del servidor, acceso mínimo y verificación posterior al despliegue.
+
