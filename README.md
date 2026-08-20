@@ -11,6 +11,7 @@ Jorkcáceres OS documenta la filosofía, el modelo comercial, el método, el raz
 - [Capacidades](docs/capacidades/)
 - [Estándares](docs/estandares/)
 - [Activos Digitales](docs/Activos_Digitales.md)
+- [Portal Jorkcáceres](docs/activos/Portal_Jorkcaceres.md)
 - [Conocimiento](docs/conocimiento/)
 - [Log](docs/Log.md)
 
@@ -20,4 +21,5 @@ Este repositorio funciona como fuente oficial de conocimiento para Jorkcáceres 
 
 ## Versión
 
-1.1.0
+1.2.0
+

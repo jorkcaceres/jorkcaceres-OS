@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## [1.2.0] - 2026-08-20
+
+### Agregado
+
+- Registro de JC-001, Portal Jorkcáceres, como activo digital consolidado.
+- Documentación de su objetivo, alcance, modelo de información, arquitectura, seguridad, operación, métricas y aprendizajes reutilizables.
+
+### Actualizado
+
+- Revisión de Conocimiento con aprendizajes validados de la creación, desarrollo e implementación del portal.
+- Método y Soluciones Digitales con criterios de permisos, seguridad, operación y validación en producción.
+- Principios, Log, SYSTEM y README para integrar el nuevo conocimiento en la arquitectura del OS.
+
+### Estado
+
+Versión 1.2 aprobada.
+
 ## [1.1.0] - 2026-08-17
 
 ### Agregado
@@ -40,3 +57,4 @@ Versión 1.1 aprobada.
 ### Estado
 
 Versión 1.0 aprobada.
+

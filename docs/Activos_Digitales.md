@@ -1,6 +1,6 @@
 # Activos Digitales
 
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Estado:** Aprobado
 
 ## Propósito
@@ -75,3 +75,21 @@ Debe poder entenderse sin depender del proyecto donde nació.
 
 ### Estratégico
 Debe fortalecer las capacidades o propiedad intelectual de Jorkcáceres.
+
+## Activos registrados
+
+### JC-001 · Portal Jorkcáceres
+
+Plataforma propia para dar continuidad a la relación con clientes después del contacto inicial. Integra encuestas públicas, acceso autenticado para clientes y administración de información operativa.
+
+- **Estado:** Consolidado.
+- **Capacidad principal:** Soluciones Digitales.
+- **Conocimiento asociado:** experiencia de cliente, arquitectura, seguridad, operación y despliegue.
+- **Documento:** [Portal Jorkcáceres](activos/Portal_Jorkcaceres.md).
+
+## Historial de cambios
+
+### 1.1
+
+- Registro de JC-001, Portal Jorkcáceres, como primer activo digital consolidado.
+
