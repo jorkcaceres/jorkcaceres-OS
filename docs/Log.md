@@ -1,6 +1,6 @@
 # Log
 
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Aprobado
 
 ## Propósito
@@ -8,6 +8,18 @@
 Registrar hitos relevantes en la evolución de Jorkcáceres OS.
 
 ## Hitos relevantes
+
+### Portal Jorkcáceres V1.1
+
+La V1.1 amplió el portal desde una herramienta centrada en proyectos hacia un espacio de relación continua con el cliente mediante Servicios, pagos unificados y una administración orientada a prioridades.
+
+#### Importancia
+
+El hito demostró que un activo digital puede evolucionar sin perder simplicidad: automatiza estados y renovaciones, conserva la historia, reúne procesos equivalentes y permite configurar la operación sin trasladar complejidad al cliente.
+
+#### Impacto en la evolución del OS
+
+El OS incorpora aprendizajes sobre recurrencias, estados calculados, conservación histórica, paginación, filtros reversibles, pruebas de integración y compatibilidad móvil real.
 
 ### Portal Jorkcáceres
 
@@ -35,6 +47,10 @@ El OS conserva el conocimiento estructural de Jorkcáceres, mientras que el siti
 
 ## Historial de cambios
 
+### 1.2
+
+- Registro de Portal Jorkcáceres V1.1 como evolución estable del activo JC-001.
+
 ### 1.0
 
 - Creación inicial con el hito del rediseño completo del sitio web de Jorkcáceres.
@@ -42,4 +58,5 @@ El OS conserva el conocimiento estructural de Jorkcáceres, mientras que el siti
 ### 1.1
 
 - Registro del Portal Jorkcáceres como activo digital consolidado y fuente de aprendizaje reutilizable.
+
 

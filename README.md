@@ -21,5 +21,6 @@ Este repositorio funciona como fuente oficial de conocimiento para Jorkcáceres 
 
 ## Versión
 
-1.2.0
+1.3.0
+
 

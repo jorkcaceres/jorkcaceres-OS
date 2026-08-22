@@ -1,6 +1,6 @@
 # Soluciones Digitales
 
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Aprobado
 
 ## Propósito
@@ -66,11 +66,26 @@ Una solución orientada a clientes debe separar con claridad:
 
 La interfaz puede orientar al usuario, pero los permisos, las validaciones y las operaciones sensibles deben ejecutarse y verificarse en el servidor. La solución también debe diseñarse para operar: crecimiento de registros, estados de carga, errores, despliegue, caché y comprobación en producción forman parte del alcance.
 
+Cuando una solución administra procesos recurrentes:
+
+- los estados dependientes del tiempo se calculan desde fechas y reglas configurables;
+- inactivar detiene la operación futura sin eliminar el historial útil;
+- procesos equivalentes se consolidan en vistas comunes sin perder su origen;
+- filtros, catálogos y recurrencias se administran sin añadir complejidad a las tareas frecuentes;
+- la paginación se incorpora antes de que el volumen afecte la lectura o el rendimiento.
+
+La calidad se verifica como experiencia completa. Las integraciones entre interfaz, permisos, funciones de servidor y almacenamiento deben probarse juntas y en los dispositivos utilizados por el cliente.
+
 Este aprendizaje fue validado en el [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md).
 
 ## Historial de cambios
 
+### 1.2
+
+- Incorporación de patrones para recurrencias, estados calculados, conservación histórica, vistas unificadas y QA de integración.
+
 ### 1.1
 
 - Incorporación de patrones validados para soluciones con experiencias públicas, privadas y administrativas.
+
 
