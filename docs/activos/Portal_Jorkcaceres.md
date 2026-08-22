@@ -1,7 +1,7 @@
 # Portal Jorkcáceres
 
 **ID:** JC-001  
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Estado:** Consolidado
 
 ## Objetivo
@@ -12,14 +12,14 @@ El portal complementa el sitio web público: el sitio presenta la oferta y facil
 
 ## Problema que resuelve
 
-Centraliza información que de otro modo quedaría dispersa entre mensajes, archivos y herramientas: clientes, accesos, proyectos, pagos, comprobantes, encuestas y configuraciones operativas.
+Centraliza información que de otro modo quedaría dispersa entre mensajes, archivos y herramientas: clientes, accesos, proyectos, servicios recurrentes, pagos, comprobantes, encuestas y configuraciones operativas.
 
 ## Alcance funcional
 
 El activo reúne tres experiencias bajo una misma identidad:
 
 - una experiencia pública, ligera y sin inicio de sesión para encuestas;
-- un área autenticada donde cada cliente consulta únicamente sus proyectos, pagos, comprobantes y respuestas;
+- un área autenticada donde cada cliente consulta únicamente sus proyectos, servicios, pagos, comprobantes y respuestas;
 - un área administrativa para crear, asociar, editar y confirmar información operativa.
 
 ## Modelo de información
@@ -27,7 +27,8 @@ El activo reúne tres experiencias bajo una misma identidad:
 - **Contacto o cliente:** persona o empresa con nombre, correo, teléfono y empresa; puede existir sin acceso al portal.
 - **Usuario del portal:** cuenta autenticada vinculada a un cliente cuando se concede acceso.
 - **Proyecto:** trabajo asociado a un cliente, con código automático, servicio, estado, fechas, carpeta compartida y observaciones.
-- **Pago:** registro asociado a un proyecto, con código automático, tipo, monto, estado, fecha y comprobante opcional.
+- **Servicio:** prestación recurrente asociada a un cliente, con nombre abierto, recurrencia administrable, valor, fecha de renovación, estado y observaciones.
+- **Pago:** registro financiero de un proyecto o de la renovación confirmada de un servicio, con tipo, monto, estado, fecha y comprobante opcional.
 - **Respuesta CSAT:** encuesta pública que se asocia automáticamente al cliente cuando el correo coincide.
 - **Configuración:** servicios, tipos de pago e imágenes de bienvenida administrables desde la aplicación.
 
@@ -50,7 +51,7 @@ Esta arquitectura describe la implementación actual. Los proveedores pueden cam
 - blanco para tarjetas y negro para texto principal;
 - Inter Tight como tipografía de referencia.
 
-Las tarjetas permanecen blancas; los indicadores destacados pueden usar azul marino con texto blanco. El footer común conserva el texto «© 2026 Jorkcáceres. Portal para clientes. V1.0.» mientras corresponda a la versión publicada.
+Las tarjetas permanecen blancas; los indicadores destacados pueden usar azul marino con texto blanco. La imagen de bienvenida se administra desde el portal y utiliza como referencia una proporción vertical 4:5 para conservar su utilidad en escritorio y móvil.
 
 ## Experiencia validada
 
@@ -63,6 +64,8 @@ Las tarjetas permanecen blancas; los indicadores destacados pueden usar azul mar
 - Solicitar únicamente datos que el usuario puede conocer en ese momento.
 - Mostrar un estado visible mientras cada acción se procesa.
 - Incorporar paginación antes de que el crecimiento vuelva ilegible una lista.
+- Mantener los acordeones administrativos cerrados al iniciar para reducir ruido visual.
+- Permitir filtros predeterminados configurables sin eliminar la opción «Mostrar todo».
 
 ## Seguridad validada
 
@@ -87,6 +90,22 @@ Los códigos se generan automáticamente. Los servicios y tipos de pago se admin
 
 Un pago pendiente no solicita fecha ni comprobante; esos campos aparecen y son obligatorios al confirmarlo. Los comprobantes se visualizan y descargan mediante enlaces temporales. En escritorio, la tarjeta prioriza identificación y monto a la izquierda, y estado y comprobante a la derecha; en móvil apila la información sin perder jerarquía.
 
+La vista Pagos reúne los pagos de proyectos y las renovaciones confirmadas de servicios. La consolidación evita fragmentar el seguimiento financiero por módulo y conserva el origen de cada pago.
+
+### Servicios
+
+Servicios administra prestaciones recurrentes como hosting, dominio, SSL, correo electrónico o combinaciones comerciales con nombre abierto.
+
+- Cada servicio se asocia a un cliente y registra recurrencia, valor, fecha de renovación y observaciones.
+- Las recurrencias se configuran por días, meses o años desde la administración.
+- Los estados **Programado**, **Próximo a vencer** y **Vencido** se calculan a partir de la fecha; **Renovado** se confirma administrativamente.
+- Al confirmar una renovación se conserva el comprobante PNG y se programa la siguiente fecha según la recurrencia.
+- Inactivar un servicio cancela renovaciones y cobros futuros, pero conserva para el cliente el servicio y sus comprobantes confirmados como historial.
+
+### Panorama
+
+Panorama prioriza decisiones administrativas en lugar de limitarse a mostrar totales. Destaca renovaciones próximas o vencidas, pagos pendientes, proyectos pausados, estado general de proyectos, servicios activos e inactivos y resumen de cobros.
+
 ### Encuesta CSAT
 
 La encuesta es breve, pública y útil para clientes o contactos. El correo permite asociar posteriormente la respuesta.
@@ -97,13 +116,30 @@ La encuesta es breve, pública y útil para clientes o contactos. El correo perm
 - **Intención de recompra:** porcentaje de «Sí».
 - **Observación:** campo opcional para contexto cualitativo.
 
+La administración puede sincronizar respuestas públicas con clientes mediante coincidencia de correo:
+
+- la sincronización parcial revisa respuestas nuevas sin asociación;
+- la sincronización completa revisa las coincidencias actuales y recupera respuestas anteriores a la creación del cliente.
+
+La respuesta asociada permanece disponible en el historial del cliente. La consistencia del correo es una responsabilidad operativa de la administración.
+
+### Administración escalable
+
+- Clientes, Proyectos, Servicios, Pagos y Encuestas utilizan paginación de 10 registros.
+- Clientes, Proyectos, Servicios y Pagos permiten filtrar por estado.
+- Los filtros iniciales se administran desde Personalizar portal.
+- «Mostrar todo» es el valor inicial seguro cuando no existe una decisión explícita.
+- Panorama y Personalizar portal no se paginan porque no son listados operativos.
+
 ## Operación y despliegue
 
+- Los cambios se prueban primero en un entorno local o de prueba sin duplicar innecesariamente la operación real de Supabase.
 - Un cambio en `main` activa la publicación automática, pero no se considera disponible hasta verificar producción.
 - Los cambios estáticos relevantes incrementan la versión de los recursos para reducir problemas de caché.
 - Cada commit representa una unidad coherente de cambio.
 - Base de datos, secretos y funciones de servidor tienen un ciclo de despliegue propio que debe coordinarse con el frontend.
 - Después de publicar se prueba el flujo modificado y, ante fallos, se revisa el registro de compilación.
+- Los eventos de inicio de sesión registran fecha y hora para permitir métricas de uso agregadas sin capturar información innecesaria.
 
 ## Criterio de terminado
 
@@ -113,6 +149,11 @@ Un cambio está terminado cuando:
 - mantiene acciones claras, estados de carga y navegación predecible;
 - respeta permisos reales y almacenamiento privado;
 - cubre datos vacíos y errores esperados;
+- prueba creación, modificación, cambio de estado, visibilidad del cliente, permisos administrativos y manejo de errores en cada módulo;
+- valida como flujo completo las integraciones entre frontend, RLS, Edge Functions, Storage y CORS;
+- incluye pruebas en el navegador y dispositivo móvil usados por el cliente, especialmente para fechas y controles nativos;
+- prioriza los flujos que modifican datos: clientes, proyectos, servicios, pagos, comprobantes y encuestas;
+- comprueba la regresión de los módulos existentes antes de publicar;
 - fue probado en producción en el flujo afectado;
 - su resultado y alcance se comunicaron con precisión.
 
@@ -127,6 +168,12 @@ Las siguientes mejoras deben partir de necesidades reales de operación. Cada m�
 - Los estados de los datos deben determinar qué campos y acciones son pertinentes.
 - Una automatización de despliegue reduce pasos, pero no reemplaza la verificación.
 - La experiencia del cliente mejora cuando consulta información clara y la administración conserva el control operativo.
+- Los estados dependientes del tiempo deben calcularse desde la fecha y la configuración, no seleccionarse manualmente.
+- Inactivar una operación futura no implica eliminar su historia; la evidencia confirmada debe conservarse.
+- Los pagos de distintos módulos deben reunirse en una vista común cuando representan el mismo proceso de consulta y control.
+- Los filtros predeterminados deben ser configurables y reversibles; una optimización diaria no debe ocultar información definitivamente.
+- La paginación temprana protege la legibilidad y el rendimiento antes de que el volumen se convierta en un problema.
+- Una prueba aislada no valida una integración; los flujos que combinan interfaz, permisos, funciones y almacenamiento deben probarse de extremo a extremo.
 
 ## Relación con otros documentos
 
@@ -137,7 +184,13 @@ Las siguientes mejoras deben partir de necesidades reales de operación. Cada m�
 
 ## Historial de cambios
 
+### 1.1
+
+- Incorporación de Servicios, pagos unificados, Panorama, sincronización CSAT, paginación, filtros administrables y registro de accesos.
+- Consolidación de aprendizajes sobre estados calculados, conservación histórica, pruebas de integración, compatibilidad móvil y control de caché.
+
 ### 1.0
 
 - Registro inicial del activo y consolidación de los aprendizajes de su creación, desarrollo e implementación.
+
 

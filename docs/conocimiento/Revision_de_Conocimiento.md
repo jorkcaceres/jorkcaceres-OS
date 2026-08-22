@@ -1,6 +1,6 @@
 # Revisión de Conocimiento
 
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Aprobado
 
 ## Propósito
@@ -16,6 +16,10 @@ El rediseño completo del sitio web validó, mediante aplicación práctica, pri
 ### Creación e implementación del Portal Jorkcáceres
 
 El Portal Jorkcáceres validó principios reutilizables para construir y operar soluciones con experiencias públicas, privadas y administrativas, conservando claridad para el cliente y control operativo para Jorkcáceres.
+
+### Evolución del Portal Jorkcáceres a V1.1
+
+La V1.1 validó cómo ampliar un activo digital desde la gestión de proyectos hacia una relación continua con clientes, incorporando servicios recurrentes, pagos unificados, priorización administrativa y mecanismos de operación escalable.
 
 ## Aprendizajes reutilizables
 
@@ -69,9 +73,33 @@ El despliegue automático mejora la continuidad, pero cada cambio debe comprobar
 
 La experiencia móvil, la paginación, los estados de carga, los códigos automáticos y una navegación predecible deben considerarse desde el diseño para evitar retrabajo cuando aumenten los usuarios y registros.
 
+### Calcular los estados que dependen del tiempo
+
+Los estados próximos a vencer o vencidos deben derivarse de fechas y configuraciones de alerta. La automatización evita errores manuales y mantiene vigente la información.
+
+### Conservar historia sin mantener operación futura
+
+Inactivar un servicio debe detener renovaciones y cobros futuros sin eliminar los comprobantes ni la información histórica que explica la relación con el cliente.
+
+### Unificar procesos equivalentes
+
+Cuando diferentes módulos producen pagos, una vista financiera común simplifica la consulta y el control sin perder la trazabilidad de origen.
+
+### Configurar sin ocultar
+
+Los filtros predeterminados mejoran la operación diaria, pero deben ser reversibles. «Mostrar todo» permite recuperar la vista completa y evita que una configuración oculte información involuntariamente.
+
+### Probar integraciones como flujos completos
+
+Frontend, RLS, Edge Functions, Storage y CORS deben verificarse juntos cuando participan en una misma acción. Una prueba aislada de cada componente no garantiza el resultado para el usuario.
+
+### Validar en dispositivos reales
+
+Los controles nativos, especialmente fechas y archivos, pueden variar entre navegadores y dispositivos. La validación debe incluir el entorno móvil utilizado por el cliente.
+
 ## Validación
 
-Estos aprendizajes fueron validados mediante el rediseño completo del sitio web y la creación, desarrollo e implementación del Portal Jorkcáceres. Se consideran aplicables a futuras decisiones, servicios, activos o proyectos.
+Estos aprendizajes fueron validados mediante el rediseño completo del sitio web y las versiones 1.0 y 1.1 del Portal Jorkcáceres. Se consideran aplicables a futuras decisiones, servicios, activos o proyectos.
 
 ## Relación con otros documentos
 
@@ -90,4 +118,9 @@ Estos aprendizajes fueron validados mediante el rediseño completo del sitio web
 ### 1.1
 
 - Incorporación de aprendizajes validados del Portal Jorkcáceres sobre experiencia, permisos, seguridad, estados, crecimiento y despliegue.
+
+### 1.2
+
+- Incorporación de aprendizajes de Portal V1.1 sobre recurrencias, estados calculados, conservación histórica, pagos unificados, filtros reversibles, QA de integración y compatibilidad móvil.
+
 

@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [1.3.0] - 2026-08-21
+
+### Agregado
+
+- Aprendizajes validados de Portal Jorkcáceres V1.1 sobre Servicios, recurrencias, estados calculados, conservación histórica, pagos unificados y Panorama.
+- Criterios de QA para integración, aceptación por módulo y compatibilidad móvil real.
+
+### Actualizado
+
+- Activo JC-001 a la versión estable 1.1 con Servicios, pagos unificados, sincronización CSAT, paginación, filtros administrables y registro de accesos.
+- Activos Digitales, Revisión de Conocimiento, Método, Soluciones Digitales, Log y README.
+
+### Estado
+
+Versión 1.3 aprobada.
+
 ## [1.2.0] - 2026-08-20
 
 ### Agregado
@@ -57,4 +73,5 @@ Versión 1.1 aprobada.
 ### Estado
 
 Versión 1.0 aprobada.
+
 

@@ -1,6 +1,6 @@
 # Método
 
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Aprobado
 
 ## Propósito
@@ -63,6 +63,12 @@ La validación contrasta el resultado obtenido con el problema y el resultado es
 
 También comprueba el flujo con permisos reales, datos vacíos, errores esperados, móvil, escritorio y entorno de producción. Un despliegue automático no sustituye esta comprobación.
 
+Cuando una función integra interfaz, base de datos, permisos, funciones de servidor, almacenamiento o CORS, se valida como recorrido completo. Cada módulo debe cubrir creación, modificación, cambio de estado, visibilidad, permisos y manejo de errores.
+
+Las pruebas móviles deben incluir el navegador y dispositivo utilizados por las personas, no solo una simulación de escritorio.
+
+Los cambios se prueban primero en un entorno local o de prueba. Se priorizan los flujos que modifican datos y se comprueba que los módulos existentes continúen funcionando antes de publicar.
+
 ## 8. Cerrar
 
 Realizamos el cierre práctico:
@@ -82,7 +88,12 @@ El método no obliga a seguir una secuencia rígida cuando el contexto requiere 
 
 ## Historial de cambios
 
+### 1.3
+
+- Inclusión de pruebas de integración, aceptación por módulo y validación en dispositivos reales.
+
 ### 1.2
 
 - Inclusión de seguridad, operación y validación en producción como parte del método de implementación.
+
 
