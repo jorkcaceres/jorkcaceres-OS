@@ -1,6 +1,6 @@
 # Método
 
-**Versión:** 1.3  
+**Versión:** 1.4  
 **Estado:** Aprobado
 
 ## Propósito
@@ -55,6 +55,8 @@ Ejecutamos la solución acordada y hacemos seguimiento.
 
 Durante el proceso, comunicamos los avances, decisiones y ajustes necesarios de forma clara para facilitar la participación de la empresa.
 
+Cuando el cliente necesita continuar modificando el resultado, la implementación prepara una entrega editable o interoperable y organiza los recursos necesarios para evitar dependencias ocultas o reconstrucciones innecesarias.
+
 ## 7. Validar
 
 Comprobamos que el resultado corresponde a lo solicitado y que genera valor.
@@ -78,6 +80,8 @@ Realizamos el cierre práctico:
 - encuesta de satisfacción;
 - feedback.
 
+El cierre confirma también el formato de continuidad acordado: resultado final, fuentes editables, recursos separados, documentación o formato de intercambio cuando corresponda.
+
 ## 9. Aprender
 
 Los aprendizajes que tengan valor permanente pueden convertirse en conocimiento o Activos Digitales.
@@ -87,6 +91,10 @@ Los aprendizajes que tengan valor permanente pueden convertirse en conocimiento 
 El método no obliga a seguir una secuencia rígida cuando el contexto requiere otra. El criterio siempre está por encima del procedimiento.
 
 ## Historial de cambios
+
+### 1.4
+
+- Incorporación de continuidad y editabilidad como criterio de implementación y cierre.
 
 ### 1.3
 

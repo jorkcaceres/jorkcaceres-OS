@@ -1,6 +1,6 @@
 # Soluciones Digitales
 
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Aprobado
 
 ## Propósito
@@ -76,9 +76,23 @@ Cuando una solución administra procesos recurrentes:
 
 La calidad se verifica como experiencia completa. Las integraciones entre interfaz, permisos, funciones de servidor y almacenamiento deben probarse juntas y en los dispositivos utilizados por el cliente.
 
-Este aprendizaje fue validado en el [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md).
+Cuando una solución conserva evidencia histórica:
+
+- la información vigente gobierna las operaciones nuevas;
+- los snapshots inmutables protegen pagos, recibos y otros comprobantes anteriores;
+- los permisos se verifican por acción en el servidor;
+- los documentos permanecen dentro de la entidad o proceso que les da contexto;
+- eliminar o reemplazar un archivo contempla también el objeto físico, la auditoría y los reintentos.
+
+Una demostración comercial no utiliza datos reales de producción. Se prepara un ambiente aislado, datos ficticios o una representación completamente anonimizada.
+
+Este aprendizaje fue validado en el [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md) y en [Propiedades CM](../activos/Propiedades_CM.md).
 
 ## Historial de cambios
+
+### 1.3
+
+- Incorporación de patrones de evidencia histórica, permisos por acción, documentos contextuales y demostraciones seguras.
 
 ### 1.2
 

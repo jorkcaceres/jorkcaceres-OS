@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [1.4.0] - 2026-10-14
+
+### Agregado
+
+- Registro de JC-002, Propiedades CM 0.6.2, como activo digital en producción.
+- Aprendizajes reutilizables sobre snapshots históricos, permisos por acción, documentos contextuales, demostraciones seguras y entregables editables.
+
+### Actualizado
+
+- Portal Jorkcáceres a la versión documental 1.2 con Diagnóstico digital, Modelo de decisión, resultados, historial e informe PDF.
+- Activos Digitales, Modelo Comercial, Método, Convenciones, Soluciones Digitales, Revisión de Conocimiento, Log y README.
+
+### Estado
+
+Versión 1.4 aprobada.
+
 ## [1.3.0] - 2026-08-21
 
 ### Agregado

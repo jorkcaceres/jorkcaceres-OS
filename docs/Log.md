@@ -1,6 +1,6 @@
 # Log
 
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Aprobado
 
 ## Propósito
@@ -8,6 +8,30 @@
 Registrar hitos relevantes en la evolución de Jorkcáceres OS.
 
 ## Hitos relevantes
+
+### Propiedades CM 0.6.2
+
+Propiedades CM alcanzó una versión operativa que integra viviendas, personas, arrendamientos, pagos, recibos verificables, documentos privados, usuarios, permisos y auditoría.
+
+#### Importancia
+
+El activo convirtió una operación manual en una fuente estructurada de información y evidencia. Validó el uso de snapshots inmutables para comprobantes, permisos por acción, documentos dentro de su contexto y verificación pública limitada.
+
+#### Impacto en la evolución del OS
+
+El OS incorpora criterios para separar información vigente y evidencia histórica, eliminar archivos de forma completa, delegar sin ampliar privilegios y preparar demostraciones sin datos reales de producción.
+
+### Diagnóstico digital del Portal Jorkcáceres
+
+El Portal incorporó una autoevaluación adaptable de seis ejes, un modelo de decisión editable y versionado, historial individual e informes en pantalla y PDF.
+
+#### Importancia
+
+El hito convirtió una conversación en una orientación accionable sin imponer un cuestionario rígido. También permitió evolucionar la metodología sin perder la trazabilidad de resultados anteriores.
+
+#### Impacto en la evolución del OS
+
+El OS incorpora criterios para aclaraciones pertinentes, cobertura evaluable, versionado metodológico y prioridades vinculadas al objetivo y a la evidencia del negocio.
 
 ### Portal Jorkcáceres V1.1
 
@@ -46,6 +70,10 @@ El hito confirmó la relación entre las capacidades que estructuran el OS y los
 El OS conserva el conocimiento estructural de Jorkcáceres, mientras que el sitio web lo traduce a una experiencia comercial comprensible. Esta evolución reconoce que las capacidades pueden requerir narrativas y experiencias de comunicación diferentes, y que una comunicación ligera ayuda a reducir fricción y respetar el tiempo del cliente.
 
 ## Historial de cambios
+
+### 1.3
+
+- Registro de Propiedades CM 0.6.2 y del Diagnóstico digital del Portal Jorkcáceres.
 
 ### 1.2
 

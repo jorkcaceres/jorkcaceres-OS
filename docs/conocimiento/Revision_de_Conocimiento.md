@@ -1,6 +1,6 @@
 # Revisión de Conocimiento
 
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Aprobado
 
 ## Propósito
@@ -20,6 +20,14 @@ El Portal Jorkcáceres validó principios reutilizables para construir y operar 
 ### Evolución del Portal Jorkcáceres a V1.1
 
 La V1.1 validó cómo ampliar un activo digital desde la gestión de proyectos hacia una relación continua con clientes, incorporando servicios recurrentes, pagos unificados, priorización administrativa y mecanismos de operación escalable.
+
+### Diagnóstico digital del Portal Jorkcáceres
+
+El Diagnóstico digital validó un recorrido adaptable de seis ejes, un modelo de decisión editable y versionado, y un informe que distingue evidencia, información parcial e insuficiencia antes de priorizar acciones.
+
+### Propiedades CM
+
+Propiedades CM validó patrones para operar un producto privado con permisos por acción, evidencia financiera inmutable, documentos contextuales, auditoría y experiencia mobile first, manteniendo sus reglas de negocio separadas de otros activos.
 
 ## Aprendizajes reutilizables
 
@@ -97,9 +105,41 @@ Frontend, RLS, Edge Functions, Storage y CORS deben verificarse juntos cuando pa
 
 Los controles nativos, especialmente fechas y archivos, pueden variar entre navegadores y dispositivos. La validación debe incluir el entorno móvil utilizado por el cliente.
 
+### Adaptar la conversación a la evidencia
+
+Una evaluación no necesita forzar la misma cantidad de preguntas para todos. Las aclaraciones deben aparecer únicamente cuando falta una condición que cambia la calidad del resultado.
+
+### Versionar el criterio
+
+Cuando una solución depende de una metodología editable, cada resultado debe conservar la versión utilizada. Mejorar el criterio no debe reescribir la lógica ni la interpretación de resultados anteriores.
+
+### Separar información vigente y evidencia histórica
+
+Las operaciones nuevas utilizan la información vigente. Los comprobantes y decisiones pasadas se apoyan en snapshots inmutables para no cambiar cuando se actualizan las entidades raíz.
+
+### Diseñar permisos según acciones
+
+Los perfiles generales simplifican la administración, pero la autorización real debe corresponder a acciones concretas. La interfaz reduce ruido; el servidor impone la frontera de seguridad.
+
+### Mantener los documentos en contexto
+
+Los archivos deben vivir dentro de la vivienda, arrendamiento, proyecto o proceso que explica su propósito. Un módulo documental genérico puede aumentar navegación y perder contexto.
+
+### Eliminar también implica almacenamiento
+
+Cuando una operación elimina o reemplaza un archivo, el diseño debe considerar el registro lógico, el objeto físico, los reintentos y la auditoría.
+
+### Demostrar sin revelar producción
+
+Los portafolios y demostraciones utilizan interfaces públicas, datos ficticios o ambientes aislados. La aprobación para mencionar un proyecto no autoriza a publicar sus datos operativos.
+
+### Entregar para continuar
+
+Cuando el cliente necesita modificar el resultado, la entrega incluye fuentes editables o formatos interoperables y recursos organizados. El archivo final no debe ser la única forma de conservar el trabajo.
+
 ## Validación
 
-Estos aprendizajes fueron validados mediante el rediseño completo del sitio web y las versiones 1.0 y 1.1 del Portal Jorkcáceres. Se consideran aplicables a futuras decisiones, servicios, activos o proyectos.
+Estos aprendizajes fueron validados mediante el rediseño completo del sitio web, las versiones del Portal Jorkcáceres, su Diagnóstico digital y Propiedades CM. Se consideran aplicables a futuras decisiones, servicios, activos o proyectos.
 
 ## Relación con otros documentos
 
@@ -108,8 +148,13 @@ Estos aprendizajes fueron validados mediante el rediseño completo del sitio web
 - Capacidades
 - Lenguaje
 - [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md)
+- [Propiedades CM](../activos/Propiedades_CM.md)
 
 ## Historial de cambios
+
+### 1.3
+
+- Incorporación de aprendizajes del Diagnóstico digital, Propiedades CM, demostraciones seguras y entregables editables.
 
 ### 1.0
 

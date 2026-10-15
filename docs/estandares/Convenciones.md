@@ -1,6 +1,6 @@
 # Convenciones
 
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Estado:** Aprobado
 
 ## Idioma
@@ -50,6 +50,26 @@ Un mismo concepto debe documentarse una sola vez. Los demás documentos deben re
 
 Cuando un documento deje de representar la realidad de Jorkcáceres, debe actualizarse o marcarse como obsoleto.
 
+## Material público y demostraciones
+
+Las capturas, videos, presentaciones y portafolios utilizan únicamente interfaces públicas, datos ficticios o ambientes demostrativos aislados.
+
+No se publican pantallas autenticadas, datos de producción, cifras confidenciales, documentos privados ni información personal. Cuando una estructura visual sea importante para explicar una solución, se recrea o anonimiza por completo antes de utilizarla.
+
+La autorización para mostrar una marca o proyecto no convierte sus datos operativos en información pública.
+
+## Entregables editables
+
+Cuando el resultado deba evolucionar después de la entrega, se conserva una versión editable o interoperable junto con la salida final.
+
+En piezas audiovisuales, esto implica separar, cuando corresponda, escenas, audio, textos, subtítulos y recursos, y utilizar un proyecto nativo o un formato de intercambio que permita continuar la edición sin reconstruir el trabajo desde cero.
+
 ## Regla final
 
 La documentación debe ser fácil de mantener, fácil de comprender y fácil de reutilizar.
+
+## Historial de cambios
+
+### 1.1
+
+- Incorporación de reglas para material público, demostraciones seguras y entregables editables.

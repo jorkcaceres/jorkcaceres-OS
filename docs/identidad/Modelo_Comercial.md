@@ -1,6 +1,6 @@
 # Modelo Comercial
 
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Estado:** Aprobado
 
 ## Propósito
@@ -16,6 +16,21 @@ Emprendedores, pequeñas empresas y medianas empresas que quieren hacer uso de l
 Ayudamos a las empresas a tomar mejores decisiones mediante tecnología, datos y estrategia digital.
 
 No buscamos imponer tecnología. Buscamos orientar al cliente hacia la alternativa que mejor responda a su contexto.
+
+## Trayectoria
+
+En 2019 Jorge Cáceres creó JC OutSource para aplicar su experiencia a empresas que necesitaban avanzar en el entorno digital. La propuesta evolucionó hacia Jorkcáceres como marca personal y sistema de trabajo centrado en decisiones de negocio.
+
+La oferta pública se organiza en tres servicios: Inteligencia de Negocio, Presencia Digital y Soluciones Digitales. Esta estructura comunica el valor al mercado; internamente el OS las conserva como capacidades que pueden combinarse según el problema.
+
+## Evidencia pública
+
+Con corte a octubre de 2026, Jorkcáceres puede comunicar los siguientes indicadores autorizados:
+
+- más de 40 clientes acompañados;
+- 98 % de satisfacción registrada.
+
+Estas cifras son una referencia fechada, no una afirmación permanente. Antes de reutilizarlas en el sitio web, propuestas o piezas comerciales se valida que su fuente y fecha de corte sigan vigentes.
 
 ## Diferencial
 
@@ -79,3 +94,10 @@ No depende únicamente de cuántas herramientas tenga una empresa, sino de cómo
 ## Networking
 
 Cuando Jorkcáceres no puede resolver por completo un problema, el objetivo sigue siendo ayudar al cliente. La red de networking permite conectarlo con personas o empresas que puedan resolver la necesidad restante.
+
+## Historial de cambios
+
+### 1.1
+
+- Registro de la evolución de JC OutSource a Jorkcáceres.
+- Incorporación de indicadores públicos autorizados con fecha de corte.

@@ -1,6 +1,6 @@
 # Activos Digitales
 
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Aprobado
 
 ## Propósito
@@ -83,12 +83,27 @@ Debe fortalecer las capacidades o propiedad intelectual de Jorkcáceres.
 Plataforma propia para dar continuidad a la relación con clientes después del contacto inicial. Integra encuestas públicas, acceso autenticado para clientes y administración de información operativa.
 
 - **Estado:** Consolidado.
-- **Versión actual:** 1.1, base estable.
+- **Versión actual:** 1.2, base estable.
 - **Capacidad principal:** Soluciones Digitales.
-- **Conocimiento asociado:** experiencia de cliente, servicios recurrentes, pagos, arquitectura, seguridad, operación, QA y despliegue.
+- **Conocimiento asociado:** experiencia de cliente, servicios recurrentes, pagos, diagnóstico digital, modelos de decisión, arquitectura, seguridad, operación, QA y despliegue.
 - **Documento:** [Portal Jorkcáceres](activos/Portal_Jorkcaceres.md).
 
+### JC-002 · Propiedades CM
+
+Aplicación web privada para administrar viviendas arrendadas, relaciones contractuales, pagos y comprobantes verificables. Conserva información vigente para operar y snapshots inmutables para proteger la evidencia histórica.
+
+- **Estado:** Producción operativa.
+- **Versión actual:** 0.6.2.
+- **Capacidad principal:** Soluciones Digitales.
+- **Conocimiento asociado:** permisos por acción, trazabilidad financiera, documentos privados, snapshots, auditoría, experiencia mobile first y operación de un producto propio.
+- **Documento:** [Propiedades CM](activos/Propiedades_CM.md).
+
 ## Historial de cambios
+
+### 1.3
+
+- Actualización de JC-001 con Diagnóstico digital y Modelo de decisión.
+- Registro de JC-002, Propiedades CM, como activo digital en producción.
 
 ### 1.2
 

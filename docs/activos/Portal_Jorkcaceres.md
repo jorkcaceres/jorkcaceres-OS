@@ -1,12 +1,12 @@
 # Portal Jorkcáceres
 
 **ID:** JC-001  
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Consolidado
 
 ## Objetivo
 
-Dar continuidad a la relación con clientes después del contacto inicial mediante una plataforma propia, clara y segura para consultar información y recoger retroalimentación.
+Dar continuidad a la relación con clientes después del contacto inicial mediante una plataforma propia, clara y segura para consultar información, recoger retroalimentación y orientar decisiones mediante un diagnóstico digital.
 
 El portal complementa el sitio web público: el sitio presenta la oferta y facilita el contacto; el portal sostiene la relación y la trazabilidad operativa.
 
@@ -19,7 +19,7 @@ Centraliza información que de otro modo quedaría dispersa entre mensajes, arch
 El activo reúne tres experiencias bajo una misma identidad:
 
 - una experiencia pública, ligera y sin inicio de sesión para encuestas;
-- un área autenticada donde cada cliente consulta únicamente sus proyectos, servicios, pagos, comprobantes y respuestas;
+- un área autenticada donde cada cliente consulta únicamente sus proyectos, servicios, pagos, comprobantes, respuestas y diagnósticos digitales;
 - un área administrativa para crear, asociar, editar y confirmar información operativa.
 
 ## Modelo de información
@@ -30,6 +30,8 @@ El activo reúne tres experiencias bajo una misma identidad:
 - **Servicio:** prestación recurrente asociada a un cliente, con nombre abierto, recurrencia administrable, valor, fecha de renovación, estado y observaciones.
 - **Pago:** registro financiero de un proyecto o de la renovación confirmada de un servicio, con tipo, monto, estado, fecha y comprobante opcional.
 - **Respuesta CSAT:** encuesta pública que se asocia automáticamente al cliente cuando el correo coincide.
+- **Diagnóstico digital:** autoevaluación orientativa asociada al cliente y al negocio evaluado, con conversación, cobertura, resultado individual e informe PDF.
+- **Versión del modelo:** copia de la guía de análisis y respuesta activa al iniciar una sesión, conservada para la trazabilidad metodológica.
 - **Configuración:** servicios, tipos de pago e imágenes de bienvenida administrables desde la aplicación.
 
 Crear un cliente no implica crearle acceso. El administrador concede o revoca ese acceso de forma explícita y conserva la responsabilidad de modificar la información operativa.
@@ -123,6 +125,55 @@ La administración puede sincronizar respuestas públicas con clientes mediante 
 
 La respuesta asociada permanece disponible en el historial del cliente. La consistencia del correo es una responsabilidad operativa de la administración.
 
+### Diagnóstico digital
+
+El diagnóstico ayuda al cliente a comprender sus prácticas digitales y decidir qué mejorar primero. Es una autoevaluación orientativa y no equivale a una auditoría.
+
+El recorrido cubre seis ejes:
+
+- dirección y prioridades;
+- presencia y captación;
+- clientes y fidelización;
+- operación y herramientas;
+- datos y decisiones;
+- personas y cuidado digital.
+
+La conversación no fuerza una cantidad fija de preguntas. Interpreta cada respuesta con el contexto acumulado y solicita una aclaración únicamente cuando falta una condición que cambia la calidad del resultado. El nombre técnico interno de la práctica no se muestra al cliente.
+
+Antes de generar el informe, el sistema revisa la cobertura completa de los seis ejes. Cuando falta información relevante, explica qué necesita conocer; si todavía existe información insuficiente, permite continuar y conserva esa condición en el resultado.
+
+Cada diagnóstico finalizado cuenta con URL propia y aparece en **Mis diagnósticos digitales**. El historial muestra fecha, negocio, cobertura evaluable y versión del modelo, con una única acción para abrir el resultado.
+
+### Modelo de decisión
+
+La metodología del diagnóstico se administra desde Configuraciones como contenido versionado. Separa la guía de análisis de la guía de respuesta y permite mejorar criterios sin cambiar la interfaz en cada ajuste.
+
+Las reglas vigentes son:
+
+- distinguir evidencia confirmada, información parcial e información insuficiente;
+- no inventar prácticas, cifras, herramientas ni resultados;
+- evaluar cada práctica de 0 a 5 y promediar las dos prácticas del eje;
+- utilizar los niveles No establecido, Inicial, Repetible, Definido, Medido y Optimizado;
+- explicar los valores decimales como una posición entre dos niveles;
+- vincular las prioridades al objetivo declarado y a la evidencia del negocio;
+- sintetizar capacidades demostradas, cuello de botella y siguiente paso útil sin repetir la conversación.
+
+Cada sesión conserva la versión activa al momento de comenzar. Los cambios posteriores se aplican a sesiones nuevas y no reescriben la metodología de resultados anteriores.
+
+### Resultado e informe PDF
+
+El resultado presenta:
+
+- nombre del negocio y lectura principal;
+- explicación de la escala de 0 a 5;
+- gráfico radar y perfil de los seis ejes;
+- síntesis de la evidencia compartida por práctica;
+- tres próximos pasos conectados con el objetivo, una señal de avance y una frecuencia de revisión.
+
+Las prioridades forman una secuencia: una acción prepara la siguiente y evita duplicar el mismo problema. El PDF utiliza una composición continua, texto alineado a la izquierda y menos tarjetas para reducir espacios vacíos y cortes innecesarios.
+
+La plantilla del PDF debe revisarse periódicamente con resultados de distinta extensión. Antes de publicar cambios metodológicos se prueban, como mínimo, casos de servicios, comercio y profesional independiente.
+
 ### Administración escalable
 
 - Clientes, Proyectos, Servicios, Pagos y Encuestas utilizan paginación de 10 registros.
@@ -130,6 +181,7 @@ La respuesta asociada permanece disponible en el historial del cliente. La consi
 - Los filtros iniciales se administran desde Personalizar portal.
 - «Mostrar todo» es el valor inicial seguro cuando no existe una decisión explícita.
 - Panorama y Personalizar portal no se paginan porque no son listados operativos.
+- El diagnóstico utiliza una ventana móvil de 24 horas para controlar consumo y estabilidad; la administración debe conservar visibilidad sobre los límites por usuario y globales.
 
 ## Operación y despliegue
 
@@ -140,6 +192,7 @@ La respuesta asociada permanece disponible en el historial del cliente. La consi
 - Base de datos, secretos y funciones de servidor tienen un ciclo de despliegue propio que debe coordinarse con el frontend.
 - Después de publicar se prueba el flujo modificado y, ante fallos, se revisa el registro de compilación.
 - Los eventos de inicio de sesión registran fecha y hora para permitir métricas de uso agregadas sin capturar información innecesaria.
+- Las modificaciones sustanciales del modelo de decisión crean una nueva versión y se prueban antes de aplicarse a sesiones nuevas.
 
 ## Criterio de terminado
 
@@ -154,12 +207,21 @@ Un cambio está terminado cuando:
 - incluye pruebas en el navegador y dispositivo móvil usados por el cliente, especialmente para fechas y controles nativos;
 - prioriza los flujos que modifican datos: clientes, proyectos, servicios, pagos, comprobantes y encuestas;
 - comprueba la regresión de los módulos existentes antes de publicar;
+- valida el recorrido completo del diagnóstico: iniciar, responder los seis ejes, aclarar cuando corresponda, generar, descargar PDF, abrir la URL individual y regresar al historial;
+- verifica que el informe no invente evidencia y que las prioridades respondan al objetivo declarado;
 - fue probado en producción en el flujo afectado;
 - su resultado y alcance se comunicaron con precisión.
 
 ## Roadmap
 
 Las siguientes mejoras deben partir de necesidades reales de operación. Cada módulo nuevo debe definir antes de construirse: problema de negocio, usuario, datos, permisos, validaciones del servidor, experiencia móvil, protección contra abuso y criterio de aceptación.
+
+Para el diagnóstico digital se prioriza:
+
+- reforzar la clasificación de objetivos comerciales;
+- hacer más estricta la lectura principal para sintetizar fortaleza, cuello de botella y decisión siguiente;
+- ampliar el modelo con ejemplos de evidencia suficiente e insuficiente;
+- mantener revisión mensual de una muestra de resultados y revisión trimestral de navegación, PDF y comprensión con usuarios reales.
 
 ## Aprendizajes
 
@@ -174,6 +236,9 @@ Las siguientes mejoras deben partir de necesidades reales de operación. Cada m�
 - Los filtros predeterminados deben ser configurables y reversibles; una optimización diaria no debe ocultar información definitivamente.
 - La paginación temprana protege la legibilidad y el rendimiento antes de que el volumen se convierta en un problema.
 - Una prueba aislada no valida una integración; los flujos que combinan interfaz, permisos, funciones y almacenamiento deben probarse de extremo a extremo.
+- Una conversación adaptable produce mejores resultados que un cuestionario rígido cuando las aclaraciones responden a vacíos determinantes.
+- Versionar la metodología permite mejorar el criterio sin perder trazabilidad de resultados anteriores.
+- Un informe útil diferencia evidencia, información parcial e insuficiencia y convierte el análisis en una secuencia accionable.
 
 ## Relación con otros documentos
 
@@ -183,6 +248,12 @@ Las siguientes mejoras deben partir de necesidades reales de operación. Cada m�
 - [Revisión de Conocimiento](../conocimiento/Revision_de_Conocimiento.md)
 
 ## Historial de cambios
+
+### 1.2
+
+- Incorporación del Diagnóstico digital de seis ejes, conversación adaptable y revisión de cobertura.
+- Registro del Modelo de decisión editable y versionado.
+- Consolidación del resultado individual, historial y criterios del informe PDF.
 
 ### 1.1
 
