@@ -1,6 +1,6 @@
 # Mantenimiento de Activos
 
-**Versión:** 0.2  
+**Versión:** 0.3  
 **Estado:** Borrador
 
 ## Propósito
@@ -100,6 +100,45 @@ Todo activo en producción cumple:
 - **Base de datos:** toda migración que modifique o elimine estructura se acompaña de su verificación previa y, cuando sea posible, de un script inverso preparado antes de aplicarla.
 - **Configuración del proveedor:** registrar el valor anterior antes de cambiarlo.
 
+## Instrucciones del proyecto en Claude
+
+Texto oficial para las instrucciones del proyecto «Mi vida profesional». Si cambia, se actualiza aquí y se vuelve a pegar en Claude.
+
+```text
+Este proyecto cubre Jorkcáceres, mi emprendimiento. Todo el trabajo vive en GitHub; no se crean carpetas ni copias en mi computador.
+
+FUENTE DE CRITERIO
+Jorkcáceres OS es la fuente oficial: https://github.com/jorkcaceres/jorkcaceres-OS
+Antes de proponer o cambiar algo, leer en este orden: CONSTITUTION.md, SYSTEM.md, docs/estandares/ (en especial Mantenimiento_de_Activos.md), el documento del activo en docs/activos/ y el CLAUDE.md del repositorio. Usar la terminología oficial y no inventar capacidades, servicios, datos ni resultados.
+
+REPOSITORIOS
+1. Jorkcáceres OS — conocimiento, estándares y activos.
+   github.com/jorkcaceres/jorkcaceres-OS · rama main · no se despliega.
+   Seguir GOVERNANCE.md y Convenciones.md: documentos con título, versión, estado y propósito; archivos en PascalCase con guion bajo; cambios importantes en CHANGELOG.md; documentos nuevos en estado Borrador hasta mi aprobación.
+2. Portal Jorkcáceres (JC-001) — portal de clientes, encuestas y diagnóstico digital.
+   github.com/jorkcaceres/jorkcaceres-portal · portal.jorkcaceres.com · Supabase zfzsigdyycgaqvbauffk
+   Frontend estático; Hostinger publica main. .htaccess bloquea lo que el navegador no necesita. El diagnóstico usa la API de OpenAI en producción.
+3. Propiedades CM (JC-002) — administración de viviendas, arrendamientos, pagos y recibos.
+   github.com/jorkcaceres/propiedades-cm · propiedadescm.jorkcaceres.com · Supabase uhemlkqxsdvwxifdmizk
+   Next.js en Hostinger desde main. Activo independiente del Portal: reutilizar aprendizajes técnicos, no su modelo de negocio.
+
+FORMA DE TRABAJO
+- Trabajar en develop (o ramas feat/, fix/, docs/ creadas desde develop). main es producción.
+- Antes de una entrega: Portal npm test y npm run check; Propiedades CM npm run verify:release.
+- SQL primero en el repositorio, cambios aditivos, y aplicar con el conector de Supabase solo con mi aprobación. Revisar advisors después.
+- Un cambio no está terminado hasta verificarlo en el dominio (Propiedades CM: /api/health con la versión nueva).
+- Al cerrar una entrega con aprendizaje permanente, actualizar el documento del activo y el CHANGELOG en Jorkcáceres OS.
+
+REQUIERE MI APROBACIÓN EXPLÍCITA
+Publicar en main de Portal o Propiedades CM; aplicar SQL o migraciones; publicar Edge Functions; cambiar Auth, Storage, captcha, secretos o Hostinger; eliminar datos, archivos o ramas.
+
+NUNCA
+Guardar secretos, datos personales o comprobantes en GitHub; reducir RLS, autorización, validación de sesión o captcha; usar datos reales de producción en demostraciones; afirmar pruebas que no se ejecutaron.
+
+ENTREGA
+Responder en español, breve y directo. Al terminar: qué cambió, cómo se comprobó, qué quedó pendiente y si ya está publicado o solo guardado en develop.
+```
+
 ## Plantilla de solicitud
 
 ```text
@@ -118,6 +157,10 @@ Restricciones: lo que no debe cambiar
 - [Propiedades CM](../activos/Propiedades_CM.md)
 
 ## Historial de cambios
+
+### 0.3
+
+- Texto oficial de las instrucciones del proyecto «Mi vida profesional» en Claude.
 
 ### 0.2
 
