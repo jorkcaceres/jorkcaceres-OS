@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [Sin publicar] - 2026-10-19
+
+### Agregado
+
+- Estándar Mantenimiento de Activos en estado Borrador: procedimiento para mantener Portal Jorkcáceres y Propiedades CM con Claude, responsabilidades de GitHub, Hostinger, Supabase y Cloudflare, aprobaciones y reversión.
+
 ## [1.4.0] - 2026-10-14
 
 ### Agregado
