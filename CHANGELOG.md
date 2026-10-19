@@ -5,6 +5,7 @@
 ### Agregado
 
 - Estándar Mantenimiento de Activos en estado Borrador: procedimiento para mantener Portal Jorkcáceres y Propiedades CM con Claude, responsabilidades de GitHub, Hostinger, Supabase y Cloudflare, aprobaciones y reversión.
+- Mantenimiento de Activos 0.2: estándar común de ramas, línea base de seguridad, disponibilidad y ubicaciones de trabajo para ambos activos.
 
 ## [1.4.0] - 2026-10-14
 

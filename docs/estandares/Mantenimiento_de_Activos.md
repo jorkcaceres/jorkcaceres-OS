@@ -1,25 +1,25 @@
-# Mantenimiento de Activos con IA
+# Mantenimiento de Activos
 
-**Versión:** 0.1  
+**Versión:** 0.2  
 **Estado:** Borrador
 
 ## Propósito
 
-Define el procedimiento para mantener y mejorar los activos digitales en producción (JC-001 Portal Jorkcáceres y JC-002 Propiedades CM) con Claude como asistente de desarrollo, sin reducir seguridad, trazabilidad ni control sobre lo que se publica.
+Define el estándar común para mantener y mejorar los activos digitales en producción —JC-001 Portal Jorkcáceres y JC-002 Propiedades CM— con Claude como asistente de desarrollo, sin reducir seguridad, disponibilidad, trazabilidad ni control sobre lo que se publica.
+
+Este documento contiene las reglas compartidas. El `CLAUDE.md` de cada repositorio contiene solo lo propio de ese activo y remite aquí.
 
 ## Responsabilidad de cada pieza
 
 | Pieza | Función | Cómo interviene Claude |
 |---|---|---|
-| GitHub | Fuente del código y origen del despliegue | Sesión de código con el repositorio adjunto: ramas, cambios, pruebas, commits y merges |
+| GitHub | Fuente del código y origen del despliegue | Repositorio adjunto con permiso de escritura: ramas, cambios, pruebas, commits y merges |
 | Hostinger | Publica automáticamente la rama `main` | Sin conector. Claude verifica el dominio después del despliegue; la configuración del panel es manual |
-| Supabase | Auth, base de datos, Storage y Edge Functions | Conector Supabase: lectura de esquema, logs y advisors; migraciones y funciones solo con aprobación |
-| Cloudflare | Turnstile en formularios y acceso | Configuración manual en el panel; el conector actual no administra Turnstile |
-| Jorkcáceres OS | Forma oficial de pensar y trabajar | Claude lo lee antes de proponer cambios y lo actualiza al cerrar una entrega con aprendizaje permanente |
+| Supabase | Auth, base de datos, Storage y Edge Functions | Conector Supabase: esquema, logs y advisors; SQL y funciones solo con aprobación |
+| Cloudflare | Turnstile en formularios y acceso | Configuración manual en el panel |
+| Jorkcáceres OS | Forma oficial de pensar y trabajar | Claude lo lee antes de proponer cambios y lo actualiza al cerrar entregas con aprendizaje permanente |
 
-El despliegue de GitHub **no** ejecuta migraciones ni publica Edge Functions. Base de datos, funciones y frontend tienen ciclos propios y deben coordinarse.
-
-En el Portal, Hostinger copia el repositorio completo al sitio: todo archivo en `main` queda accesible públicamente en el dominio.
+El despliegue de GitHub **no** ejecuta migraciones ni publica Edge Functions. Base de datos, funciones y frontend tienen ciclos propios y se coordinan.
 
 Claude es la herramienta de desarrollo. Es independiente de los proveedores de IA que un activo use en producción: el diagnóstico digital del Portal utiliza la API de OpenAI y su cambio requiere una decisión y pruebas propias.
 
@@ -30,79 +30,69 @@ Claude es la herramienta de desarrollo. Es independiente de los proveedores de I
 | Dominio | portal.jorkcaceres.com | propiedadescm.jorkcaceres.com |
 | Repositorio | `jorkcaceres/jorkcaceres-portal` | `jorkcaceres/propiedades-cm` |
 | Supabase | `zfzsigdyycgaqvbauffk` | `uhemlkqxsdvwxifdmizk` |
-| Tecnología | Frontend estático + Edge Functions | Next.js 16, React 19, TypeScript |
-| Publicación | `main` → `public_html/portal` | `main` → app Node.js (`npm ci`, `npm run build`, `npm start`) |
-| Rama de trabajo | Rama de tarea (`feat/`, `fix/`, `docs/`) | `develop` o rama de tarea derivada |
+| Tecnología | Frontend estático + Edge Functions | Next.js, React y TypeScript |
+| Publicación | `main` → sitio estático | `main` → app Node.js (`npm ci`, `npm run build`, `npm start`) |
 | Pruebas | `npm test` y `npm run check` | `npm run check`; antes de publicar `npm run verify:release` |
 | SQL versionado | `supabase/*.sql` | `database/*.sql` |
-| Reglas del repositorio | `CLAUDE.md` | `CLAUDE.md` |
-| Verificación técnica | Flujo afectado en el dominio | `/api/health` y recorrido manual |
+| Protección del sitio | `.htaccess` | `next.config.mjs` |
+| Verificación técnica | Recursos 200, archivos bloqueados, flujo afectado | `/api/health` y recorrido manual |
 
-## Preparación única
+## Dónde se trabaja
 
-1. **GitHub:** instalar la aplicación de Claude en GitHub con acceso solo a los tres repositorios (`jorkcaceres-OS`, `jorkcaceres-portal`, `propiedades-cm`). Sin este paso Claude puede leer, pero no guardar cambios.
-2. **Reglas en cada repositorio:** cada aplicativo mantiene un `CLAUDE.md` en la raíz con sus reglas de trabajo. Claude lo lee al iniciar cada sesión.
-3. **Supabase:** mantener el conector autorizado. En Propiedades CM, Supabase se administra únicamente mediante el conector; no se usa la CLI local.
-4. **Hostinger:** confirmar en el panel que cada sitio sigue conectado a `main` y que las variables de entorno de Propiedades CM están completas.
-5. **Proyecto en Claude:** trabajar desde el proyecto «Mi vida profesional», con instrucciones que remitan a Jorkcáceres OS como fuente oficial.
+| Trabajo | Ubicación |
+|---|---|
+| Portal | Repositorio `jorkcaceres-portal`, rama `develop` |
+| Propiedades CM | Repositorio `propiedades-cm`, rama `develop` |
+| Conocimiento y estándares | Repositorio `jorkcaceres-OS`, rama `main` |
+| Conversación y contexto | Proyecto «Mi vida profesional» en Claude |
+
+Cada sesión de trabajo se abre con el repositorio del activo correspondiente. Un cambio que afecte a ambos activos se hace en sesiones o ramas separadas, una por repositorio.
+
+## Ramas
+
+- `develop`: trabajo habitual en ambos activos. Las ramas de tarea (`feat/`, `fix/`, `docs/`) se crean desde `develop`.
+- `main`: exclusivamente publicación. Cada actualización despliega en producción.
+- Los cambios se agrupan en entregas completas; `main` no se actualiza por cada ajuste ni por documentación aislada.
+- Antes de publicar se revisan diferencias y divergencias remotas. Nunca se fuerzan referencias ni se sobrescribe trabajo.
 
 ## Ciclo de un cambio
 
-### 1. Solicitud
+1. **Solicitud.** Aplicativo, objetivo, criterio de aceptación y alcance (solo desarrollo o publicar). Un módulo nuevo define antes: problema de negocio, usuario, datos, permisos, validaciones del servidor, experiencia móvil, protección contra abuso y criterio de aceptación.
+2. **Comprensión.** Claude lee `CONSTITUTION.md`, `SYSTEM.md`, este estándar, el documento del activo y el `CLAUDE.md` del repositorio. Si involucra datos, revisa esquema y advisors. Devuelve un plan breve con archivos, riesgos y cambios de base de datos.
+3. **Desarrollo.** En `develop` o rama de tarea. Cada commit es una unidad coherente. Toda regla de negocio corregida incorpora una prueba de regresión.
+4. **Base de datos y funciones.** SQL primero en el repositorio; cambios aditivos y compatibles con el frontend publicado; aplicación con el conector solo tras aprobación; advisors de seguridad y rendimiento después. Orden: base de datos → funciones → frontend.
+5. **Verificación previa.** Pruebas del repositorio y resumen: qué cambió, qué pasó, qué quedó pendiente y qué no se pudo probar. Las pruebas automatizadas no sustituyen el recorrido manual en móvil y escritorio.
+6. **Publicación.** Integrar `develop` en `main` solo con una entrega aprobada.
+7. **Verificación en producción.** Un cambio no está disponible hasta comprobarlo en el dominio. Si el despliegue falla, revisar el registro de Hostinger antes de corregir.
+8. **Cierre.** Actualizar README o historial del aplicativo y, si hubo aprendizaje permanente, el documento del activo y `CHANGELOG.md` en este repositorio.
 
-Indicar aplicativo, problema u objetivo y criterio de aceptación. Si el cambio crea un módulo nuevo, definir antes: problema de negocio, usuario, datos, permisos, validaciones del servidor, experiencia móvil, protección contra abuso y criterio de aceptación.
+## Aprobaciones
 
-### 2. Comprensión
+**Claude puede hacerlo sin aprobación previa:** leer código y documentación, crear ramas de trabajo, hacer commits en `develop` o ramas de tarea, ejecutar pruebas y consultar esquema, logs y advisors.
 
-Claude lee `SYSTEM.md`, `CONSTITUTION.md`, el documento del activo en `docs/activos/` y las reglas del repositorio. Revisa el código afectado y, si involucra datos, el esquema y los advisors de Supabase. Devuelve un plan breve con archivos, riesgos y si requiere cambios en base de datos.
+**Requiere aprobación explícita:** integrar en `main`; aplicar SQL o migraciones; publicar Edge Functions; cambiar configuración de Auth, Storage, captcha, secretos o Hostinger; eliminar datos o archivos.
 
-### 3. Desarrollo
+**Nunca:** guardar secretos, datos personales o comprobantes en un repositorio; reducir RLS, validaciones de sesión, autorización o captcha para acelerar el trabajo; usar datos de producción como demostración.
 
-- Propiedades CM: trabajar en `develop` o en una rama derivada.
-- Portal: trabajar en una rama de tarea creada desde `main`.
-- Cada commit representa una unidad coherente de cambio.
-- Toda regla de negocio corregida incorpora una prueba de regresión.
-- Los cambios estáticos relevantes del Portal incrementan la versión de los recursos para evitar problemas de caché.
+## Línea base de seguridad
 
-### 4. Base de datos y funciones
+Todo activo en producción cumple:
 
-1. El SQL se guarda primero en el repositorio (`database/` o `supabase/`).
-2. Se prefieren cambios aditivos y compatibles con la versión publicada del frontend.
-3. Claude presenta el SQL y su efecto; se aplica con el conector solo después de la aprobación.
-4. Después de aplicar, Claude revisa los advisors de seguridad y rendimiento.
-5. Las Edge Functions del Portal se publican con el conector, también con aprobación previa.
+- **Exposición mínima.** Solo se publica lo que el navegador necesita. En sitios estáticos, Hostinger copia el repositorio completo, por lo que carpetas de desarrollo, SQL, pruebas, documentación y archivos ocultos se bloquean en el servidor.
+- **Cabeceras.** `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security` y protección contra incrustación (`X-Frame-Options` o `frame-ancestors`).
+- **Secretos.** Solo claves publicables en el código. Las claves privilegiadas viven en Hostinger o en los secretos de Supabase.
+- **Datos.** RLS activo, autorización validada en el servidor y Storage privado con enlaces firmados de corta duración.
+- **Acceso.** Captcha en formularios públicos e inicio de sesión. Registro público y acceso anónimo desactivados cuando no se usan.
+- **Contraseñas.** Protección contra contraseñas filtradas activada en Supabase Auth cuando el plan lo permita.
+- **Dependencias.** `npm audit` sin vulnerabilidades conocidas en dependencias de ejecución antes de cada entrega.
+- **Revisión.** Advisors de seguridad de Supabase después de cada cambio de base de datos y al menos una vez al mes.
 
-Orden habitual: base de datos compatible → funciones → frontend.
+## Disponibilidad
 
-### 5. Verificación previa
-
-Claude ejecuta las pruebas del repositorio y presenta un resumen: qué cambió, qué pruebas pasaron, qué queda pendiente y qué no pudo probar. Las pruebas automatizadas no sustituyen el recorrido manual en móvil y escritorio.
-
-### 6. Publicación
-
-Se integra en `main` solo cuando se aprueba una entrega completa. En Propiedades CM, los cambios se agrupan en `develop` y se integran en `main` una sola vez por entrega; la documentación aislada espera la siguiente entrega. Nunca se fuerzan referencias ni se sobrescribe trabajo remoto.
-
-### 7. Verificación en producción
-
-Un cambio en `main` no se considera disponible hasta verificar producción.
-
-- Propiedades CM: `/api/health` muestra la versión esperada; captcha, ingreso, cierre de sesión, rechazo de cuentas no autorizadas, permisos, documentos privados y recorridos de pagos y recibos.
-- Portal: flujo modificado, visibilidad del cliente, permisos administrativos y, si aplica, recorrido completo del diagnóstico.
-
-Si falla, revisar el registro de compilación de Hostinger antes de corregir.
-
-### 8. Cierre
-
-- Actualizar `README.md` o historial del aplicativo cuando cambie el alcance.
-- Si la entrega produjo un aprendizaje permanente, actualizar el documento del activo en Jorkcáceres OS y `CHANGELOG.md`.
-
-## Qué hace Claude por su cuenta y qué requiere aprobación
-
-**Sin aprobación previa:** leer código y documentación, crear ramas de trabajo, hacer commits en ramas de trabajo o `develop`, ejecutar pruebas, consultar esquema, logs y advisors.
-
-**Con aprobación explícita:** integrar en `main`, aplicar SQL o migraciones en producción, publicar Edge Functions, cambiar configuración de Auth o Storage, eliminar datos o archivos, y cualquier cambio que afecte secretos.
-
-**Nunca:** guardar secretos, datos personales o comprobantes en el repositorio; reducir RLS, validaciones de sesión, autorización o captcha para acelerar el trabajo; usar datos de producción como demostración.
+- Menos despliegues reducen la probabilidad de dejar producción a medias: solo entregas completas llegan a `main`.
+- Cada entrega incrementa la versión visible del activo (`/api/health` en Propiedades CM, `?v=` en recursos del Portal) para confirmar qué está publicado.
+- Los formularios públicos y funciones costosas tienen límites de uso (captcha, cuotas del diagnóstico) para evitar abuso y consumo excesivo.
+- Si producción falla después de publicar, primero se revierte y luego se diagnostica.
 
 ## Reversión
 
@@ -122,12 +112,17 @@ Restricciones: lo que no debe cambiar
 
 ## Relación con otros documentos
 
+- [Principios](Principios.md)
 - [Activos Digitales](../Activos_Digitales.md)
 - [Portal Jorkcáceres](../activos/Portal_Jorkcaceres.md)
 - [Propiedades CM](../activos/Propiedades_CM.md)
-- [Principios](Principios.md)
 
 ## Historial de cambios
+
+### 0.2
+
+- Estándar común para ambos activos: ramas `develop`/`main`, línea base de seguridad, disponibilidad y ubicaciones de trabajo.
+- `CLAUDE.md` de cada repositorio limitado a lo propio del activo.
 
 ### 0.1
 
